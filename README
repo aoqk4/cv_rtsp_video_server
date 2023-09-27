@@ -1,0 +1,4 @@
+# cv_rtsp_video_server
+
+## rust opencv를 활용한 RTSP VIDEO 서버를 소켓통신으로 제작하려는 레포
+
