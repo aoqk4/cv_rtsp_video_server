@@ -1,19 +1,14 @@
-extern crate dotenv;
-
-use dotenv::dotenv;
 use opencv::{prelude::*, videoio};
-use std::env;
 
 pub fn video_capture() -> opencv::Result<Vec<u8>, opencv::Error> {
     // SET RTSP URL
-    // let video_url = "rtsp://admin:1234qwer@119.199.222.201:554/ISAPI/Streaming/channels/201";
-    let video_url = env::var("RTSP_ADDR").unwrap();
+    let video_url = "myIPIP";
 
     // INIT CAPTURE CAMERA
     let mut cam = videoio::VideoCapture::default()?;
 
     // SET RTSP URL AT CAPTURE
-    let rtsp_test = videoio::VideoCapture::open_file(&mut cam, &video_url, videoio::CAP_FFMPEG)?;
+    let rtsp_test = videoio::VideoCapture::open_file(&mut cam, video_url, videoio::CAP_FFMPEG)?;
 
     // IF OPEN ERROR PANIC! (FILENAME OR URL ADDR ERROR)
     if !rtsp_test {
